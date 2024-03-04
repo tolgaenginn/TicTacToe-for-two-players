@@ -9,8 +9,13 @@ class Player:
         valid_played = False
         while not valid_played:
             try:
-                row = int(input("Row: "))-1
-                col = int(input("Column: "))-1
+                row = -1
+                col = -1
+                while (row > 2 or row < 0) or (col > 2 or col < 0):
+                    row = int(input("Row: ")) - 1
+                    col = int(input("Column: ")) - 1
+                    if (row > 2 or row < 0) or (col > 2 or col < 0):
+                        print("Out of bounds")
                 if board[row][col] == None:
                     board[row][col] = self.sign
                     valid_played = True
